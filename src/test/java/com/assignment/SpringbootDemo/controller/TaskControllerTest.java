@@ -27,5 +27,27 @@ public class TaskControllerTest {
         Assertions.assertEquals(HttpStatus.CREATED, entity.getStatusCode());
     }
 
+    @Test
+    void testGetTaskbyId(){
+        ResponseEntity entity = taskController.getTaskById(1l);
+        Assertions.assertEquals(HttpStatus.OK, entity.getStatusCode());
+    }
 
+    @Test
+    void testGetAllTaks(){
+        ResponseEntity entity = taskController.getAllTasks();
+        Assertions.assertEquals(HttpStatus.OK, entity.getStatusCode());
+    }
+
+    @Test
+    void testDeleteTasksById(){
+        ResponseEntity entity = taskController.deleteTaskById(1l);
+        Assertions.assertEquals(HttpStatus.OK, entity.getStatusCode());
+    }
+
+    @Test
+    void testUpdateTask(){
+        ResponseEntity entity = taskController.updateTaskCompletionStatus(1l, true);
+        Assertions.assertEquals(HttpStatus.OK, entity.getStatusCode());
+    }
 }
